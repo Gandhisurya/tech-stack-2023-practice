@@ -7,11 +7,9 @@ const AudioPlayer = ({ audioSrc }) => {
   const [currentTime, setCurrentTime] = useState(0);
 
   useEffect(() => {
-    // Add event listeners once the audioRef.current is available
     audioRef?.current?.addEventListener("loadedmetadata", handleLoadedMetadata);
     audioRef?.current?.addEventListener("timeupdate", handleTimeUpdate);
 
-    // Cleanup the event listeners on component unmount
     return () => {
       audioRef?.current?.removeEventListener(
         "loadedmetadata",
