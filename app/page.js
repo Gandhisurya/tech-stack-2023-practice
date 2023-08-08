@@ -41,6 +41,8 @@ const AudioPlayer = ({ audioSrc }) => {
     audioRef?.current?.pause();
   };
 
+  // below line command the env file
+
   console.log(process.env.NEXT_PUBLIC_RAZORPAYID);
 
   return (
