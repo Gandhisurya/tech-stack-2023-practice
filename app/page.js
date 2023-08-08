@@ -43,6 +43,8 @@ const AudioPlayer = ({ audioSrc }) => {
     audioRef?.current?.pause();
   };
 
+  console.log(process.env.NEXT_PUBLIC_RAZORPAYID);
+
   return (
     <div className="flex items-center">
       <audio ref={audioRef} controls>
