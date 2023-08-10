@@ -6,6 +6,8 @@ import Marquee from "react-fast-marquee";
 import { BsArrowRightShort } from "react-icons/bs";
 import { AiFillPlayCircle, AiFillPauseCircle } from "react-icons/ai";
 
+import Footer from "./footer/page";
+
 const AudioPlayer = ({ audioSrc }) => {
   const audioRef = useRef();
   const [duration, setDuration] = useState(0);
@@ -89,74 +91,77 @@ const AudioPlayer = ({ audioSrc }) => {
   ];
 
   return (
-    <div className="flex flex-col items-center mt-20">
-      <div className="relative">
-        <Marquee
-          gradientWidth={100}
-          pauseOnHover
-          className="max-w-[1300px] h-[280px]"
-        >
-          {data?.map((each, index) => (
-            <div
-              key={index}
-              onClick={() => {
-                console.log(index);
-              }}
-              className={`flex relative mx-8 h-[240px] max-w-[350px] rounded-lg bg-white cursor-pointer hover:scale-105 transition-transform`}
-              onMouseEnter={() => setIsPlayingIndex(index)}
-              onMouseLeave={() => setIsPlayingIndex(null)}
-            >
-              <div className="flex flex-col bg-slate-100 rounded-lg">
-                <img
-                  className="w-[200px] h-[180px] rounded-lg object-cover"
-                  src={each.imageUrl}
-                  alt=""
-                />
-                <audio
-                  style={{
-                    display: "none",
-                  }}
-                  ref={audioRef}
-                  controls
-                >
-                  <source src={each?.audio} type="audio/mpeg" />
-                </audio>
-                <div className="flex flex-col p-1">
-                  <p className="ml-2 font-semibold">Apple products</p>
-                  <p className="mx-2 text-xs">apple products are launch</p>
-                </div>
-              </div>
-              <div className="absolute z-50 top-20 left-20">
-                {isPlayingIndex === index ? (
-                  audioRef.current.paused ? (
-                    <AiFillPlayCircle
-                      className="bg-blue-500 hover:bg-blue-600 text-4xl p-1 text-white rounded-full"
-                      onClick={() => playAudio(index)}
-                    />
-                  ) : (
-                    <AiFillPauseCircle
-                      className="bg-red-500 hover:bg-red-600 text-4xl p-1 text-white rounded-full"
-                      onClick={pauseAudio}
-                    />
-                  )
-                ) : null}
-              </div>
-            </div>
-          ))}
-        </Marquee>
+    // <div className="flex flex-col items-center mt-20">
+    //   <div className="relative">
+    //     <Marquee
+    //       gradientWidth={100}
+    //       pauseOnHover
+    //       className="max-w-[1300px] h-[280px]"
+    //     >
+    //       {data?.map((each, index) => (
+    //         <div
+    //           key={index}
+    //           onClick={() => {
+    //             console.log(index);
+    //           }}
+    //           className={`flex relative mx-8 h-[240px] max-w-[350px] rounded-lg bg-white cursor-pointer hover:scale-105 transition-transform`}
+    //           onMouseEnter={() => setIsPlayingIndex(index)}
+    //           onMouseLeave={() => setIsPlayingIndex(null)}
+    //         >
+    //           <div className="flex flex-col bg-slate-100 rounded-lg">
+    //             <img
+    //               className="w-[200px] h-[180px] rounded-lg object-cover"
+    //               src={each.imageUrl}
+    //               alt=""
+    //             />
+    //             <audio
+    //               style={{
+    //                 display: "none",
+    //               }}
+    //               ref={audioRef}
+    //               controls
+    //             >
+    //               <source src={each?.audio} type="audio/mpeg" />
+    //             </audio>
+    //             <div className="flex flex-col p-1">
+    //               <p className="ml-2 font-semibold">Apple products</p>
+    //               <p className="mx-2 text-xs">apple products are launch</p>
+    //             </div>
+    //           </div>
+    //           <div className="absolute z-50 top-20 left-20">
+    //             {isPlayingIndex === index ? (
+    //               audioRef.current.paused ? (
+    //                 <AiFillPlayCircle
+    //                   className="bg-blue-500 hover:bg-blue-600 text-4xl p-1 text-white rounded-full"
+    //                   onClick={() => playAudio(index)}
+    //                 />
+    //               ) : (
+    //                 <AiFillPauseCircle
+    //                   className="bg-red-500 hover:bg-red-600 text-4xl p-1 text-white rounded-full"
+    //                   onClick={pauseAudio}
+    //                 />
+    //               )
+    //             ) : null}
+    //           </div>
+    //         </div>
+    //       ))}
+    //     </Marquee>
 
-        <div
-          onClick={() => {
-            alert(`april fool ❤️`);
-          }}
-          className="flex items-center text-right absolute -top-8 right-4 font-semibold hover:bg-blue-600 cursor-pointer hover:rounded-lg p-1 px-2 text-xs hover:text-white"
-        >
-          <p>see all</p>
-          <span>
-            <BsArrowRightShort className="ml-2 text-lg" />
-          </span>
-        </div>
-      </div>
+    //     <div
+    //       onClick={() => {
+    //         alert(`april fool ❤️`);
+    //       }}
+    //       className="flex items-center text-right absolute -top-8 right-4 font-semibold hover:bg-blue-600 cursor-pointer hover:rounded-lg p-1 px-2 text-xs hover:text-white"
+    //     >
+    //       <p>see all</p>
+    //       <span>
+    //         <BsArrowRightShort className="ml-2 text-lg" />
+    //       </span>
+    //     </div>
+    //   </div>
+    // </div>
+    <div>
+      <Footer />
     </div>
   );
 };
